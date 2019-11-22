@@ -212,8 +212,8 @@ class Gig
     }
 
     /**
-     * Metabox Save Callbacks
-     */
+    * Metabox Save Callbacks
+    */
     public function saveEventMeta( $post_id, $post ) {
 
         if ( $this->slug != $post->post_type ) return;
@@ -261,13 +261,13 @@ class Gig
             endif;
         } else {
             \delete_post_meta( $post_id, $this->slug.'_gallery' );
-        }
+        };
 
     }
 
     /**
-     * Customize the admin columns and sorting for this Custom Post Type
-     */
+    * Customize the admin columns and sorting for this Custom Post Type
+    */
     public function adminColumns( $columns ) {
         $cb = $columns['cb'];
         $columns = array(
@@ -281,7 +281,7 @@ class Gig
     }
 
     public function manageColumns( $column, $post_id ) {
-        switch($column){
+        switch( $column ) {
             case 'title':
                 \get_the_title( $post_id );
                 break;
@@ -310,7 +310,7 @@ class Gig
         if( ! is_admin() || ! $query->is_main_query() ) { return; }
         if( 'event' !== $query->query_vars['post_type'] ) { return; }
 
-        switch($query->get( 'orderby')) {
+        switch( $query->get( 'orderby') ) {
             case 'location':
                 $query->set( 'orderby', 'meta_value' );
                 $query->set( 'meta_key', 'related_location.post_title' );
@@ -325,10 +325,11 @@ class Gig
                 $query->set( 'meta_type', 'DATE' );
                 break;
         }
+
     }
 
     /**
-     * rewrite rules for this custom post type
-     * /
+    * rewrite rules for this custom post type
+    */
 
 }
