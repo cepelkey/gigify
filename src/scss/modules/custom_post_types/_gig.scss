@@ -1,0 +1,15 @@
+.postbox#event-event_date {
+    div.inside div {
+        display: grid;
+        grid-template-columns: repeat(3, 150px);
+        
+        align-items: center;
+
+        row-gap: 2em;
+        column-gap: 2em;
+
+        span.label {
+            font-weight: bold;
+        }
+    }
+}

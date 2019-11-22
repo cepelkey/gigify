@@ -10,7 +10,7 @@ final class Init {
      */
     public static function get_services(){
         return array(
-            Pages\Admin::class,
+            Pages\Dashboard::class,
             Common\Enqueue::class,
             Common\SettingsLinks::class
         );

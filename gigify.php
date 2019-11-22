@@ -36,7 +36,7 @@ function gigify_deactivate_plugin() {
 }
 register_deactivation_hook( __FILE__, 'gigify_deactivate_plugin');
 
-// INITIALIZE MAIN CLASS IF EXISTS
+// INITIALIZE MAIN CLASS IF IT EXISTS
 if ( class_exists ( 'GIGify\\Init' ) ) {
     GIGify\Init::register_services();
 }

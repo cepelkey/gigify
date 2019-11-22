@@ -1,0 +1,9 @@
+@import 'modules/tabs';
+@import 'modules/toggle';
+@import 'modules/custom_post_types/gig';
+@import 'modules/gallery_metabox';
+
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
