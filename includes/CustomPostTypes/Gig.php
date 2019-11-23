@@ -271,11 +271,12 @@ class Gig
     public function adminColumns( $columns ) {
         $cb = $columns['cb'];
         $columns = array(
-            'cb' => $cb,
-            'title' => __( 'Event Title' ),
-            'event_date' => __( 'Event Date' ),
-            'times' => __( 'Event Times'),
-            'location' => __( 'Event Location' )
+            'cb'            => $cb,
+            'title'         => __( 'Event Title' ),
+            'event_date'    => __( 'Event Date' ),
+            'times'         => __( 'Event Times'),
+            'location'      => __( 'Event Location' ),
+            'gallery'       => __( 'Event Gallery' )
         );
         return $columns;
     }
@@ -294,8 +295,12 @@ class Gig
                 echo $start_time . ' - ' . $end_time;
                 break;
             case 'location':
-                $venue_id = \get_post_meta( $post_id, 'venue', true );
+                $venue_id = \get_post_meta( $post_id, $this->slug.'_venue', true );
                 echo ( 0 != intval($venue_id) ) ? \get_the_title( $venue_id ) : '';
+                break;
+            case 'gallery':
+                $gallery = \get_post_meta( $post_id, $this->slug.'_gallery', true );
+                echo ($gallery && \is_array( $gallery ) ) ? '&#10004' : '&#10008' ;
                 break;
         }
     }
